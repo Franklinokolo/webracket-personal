@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Webracket | website creation for companies and individuals</title>
+  <meta content="website development for companies and individuals" name="description">
+  <meta content="author" name="Webracket">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static '/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/glightbox/css/glightbox.min.css' %}'" rel="stylesheet">
+  <link href="{% static '/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static '/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+ 
+<body>
+      <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="logo">
+        <!-- <h1><a href="index.html"><span>Bootslander</span></a></h1> -->
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <a href="index.html"><img src="{% static 'images/logo.png' %}" alt="" class="img-fluid"></a>
+      </div>
+
+<!-- .navbar -->
+{% include 'base/navbar.html' %}
+
+    </div>
+  </header>
+    
+    
+    {% block content %}
+    {% endblock content %}
+
+{% include 'base/footer.html'%}
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<div id="preloader">
+ <p >loading</p>
+</div>
+
+<!-- Vendor JS Files -->
+<script src="{% static '/vendor/purecounter/purecounter.js'%}"></script>
+<script src="{% static '/vendor/aos/aos.js' %}"></script>
+<script src="{% static '/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+<script src="{% static '/vendor/glightbox/js/glightbox.min.js'%}"></script>
+<script src="{% static '/vendor/swiper/swiper-bundle.min.js'%}"></script>
+
+<!-- Template Main JS File -->
+<script src="{% static 'js/main.js'%}"></script>
+</body>
+</html>

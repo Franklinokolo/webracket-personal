@@ -1,0 +1,60 @@
+{% extends 'base/project.main.html' %}
+
+{% load static %}
+{% block content %}
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+       
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li>projects</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs Section -->
+
+    <section id="gallery" class="gallery">
+        <div class="container">
+    
+          
+    
+          <div class="row no-gutters" data-aos="fade-left">
+        
+                {% for project in projects %}
+        
+                <div class="col-lg-3 col-md-4">
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="{{project.thumbnail.url}}" alt="" class="img-fluid" width="100" height="100">
+                    <p class="text-center text-dark pt-2 text-capitalize fs-3px">{{project.title}}</p>
+                    </a>
+                </div>
+                </div>
+
+                {% empty %}
+
+                <div class="row">
+                    <p class="text-center"> no project</p>
+                </div>
+                
+                {% endfor %}
+
+          </div>
+    
+        </div>
+      </section>
+
+    
+
+  </main>
+  <!-- End #main -->
+
+{% endblock content %}
+
+

@@ -1,0 +1,346 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+
+{% load static %}
+<!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-lg-7 pt-5 pt-lg-0 order-2 order-lg-1 d-flex align-items-center">
+          <div data-aos="zoom-out">
+            <h1>Lets Grow Your <span>Business</span></h1>
+            <h2>We are team of talented designers<br/> making websites for individuals and   companies</h2>
+           
+            <div class="text-center text-lg-start">
+              <a href="https://wap.me/+2349055971750" class="btn-get-started scrollto">Whatsapp Us</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="300">
+          <img src="{% static 'images/hero-img.png' %}" class="img-fluid animated" alt="">
+       
+        </div>
+      </div>
+    </div>
+
+    <svg class="hero-waves" viewBox="0 24 150 28 " preserveAspectRatio="none">
+      <defs>
+        <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
+      </defs>
+      <g class="wave1">
+        <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)">
+      </g>
+      <g class="wave2">
+        <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)">
+      </g>
+      <g class="wave3">
+        <use xlink:href="#wave-path" x="50" y="9" fill="#fff">
+      </g>
+    </svg>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container-fluid">
+
+        <div class="row">
+          <div class="col-md-4" data-aos="fade-right">
+            <img src="{% static 'images/details-2.png' %}" class="img-fluid" alt="">
+          </div>
+          <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center Py-lg-2 px-lg-5" data-aos="fade-left">
+            <h3>About Us</h3>
+            <p>we are group of talented webdevlopers creating website for companies and individual. At Webracket Our primary goal is to give your business exposure using the power of the web. we are experts in delivering innovative web solutions. </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+    <section id="Services" class="details">
+      <div class="container">
+
+        <div class="row content">
+          
+          <div class="col-md-8 px-lg-5 " data-aos="fade-up">
+            <h3> Our Services</h3>
+            <p class="fst-italic">
+              we are commited to making your business strive by providing online presence. we offer a wide range of digital media service to help our clients reach their goals. we build all types of websites that suites our clients need. 
+            </p>
+            <ul>
+              <li><i class="bi bi-check"></i>Blog</li>
+              <li><i class="bi bi-check"></i>Portfolio</li>
+              <li><i class="bi bi-check"></i>Ecommerce</li>
+              <li><i class="bi bi-check"></i>cooperative</li>
+            </ul>
+            <p>
+              we consistently deliver outstanding results using the latest technology in building profesional websites. we do not only build websites, we develop online presence of your business or organization and turn your visitors into paying customers.
+              choose from our services and feel free to use the Whatsapp button or the contact form.
+            </p>
+          </div>
+          <div class="col-md-4" data-aos="fade-left">
+            <img src="{% static 'images/details-1.png' %}" class="img-fluid" alt="">
+          </div>
+        </div>
+
+       
+
+      </div>
+    </section><!-- End Details Section -->
+
+    <!-- ======= Features Section ======= -->
+    <section id="features" class="features">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <p>Skills</p>
+        </div>
+        <div class="row" data-aos="fade-left">
+        {% for skill in skills %}
+        
+            <div class="col-lg-3 col-md-4 mt-2">
+              <div class="icon-box" data-aos="zoom-in" data-aos-delay="50">
+                <i> <img src="{{ skill.skill_icon.url }}" alt=""></i>
+                <h3><a href="">{{skill.skill}}</a></h3>
+              </div>
+            </div>
+            {% empty %}
+            <p> Error Rendering Skill </p>
+        {% endfor %}
+          
+         
+         
+          
+        </div>
+
+      </div>
+    </section><!-- End Features Section -->
+
+   
+    
+
+
+    <!-- ======= projects Section ======= -->
+    <section id="projects" class="gallery">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Gallery</h2>
+          <p>Check our Gallery</p>
+        </div>
+
+        <div class="row no-gutters" data-aos="fade-left">
+
+          {% for project in projects %}
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+              <a href="{% url 'post' project.id %}" >
+                <img src="{{project.thumbnail.url}}" alt="" class="img-fluid" width="100" height="100">
+                <p class="text-center text-dark pt-2 text-capitalize fs-2px">{{project.title}}</p>
+              </a>
+            </div>
+          </div>
+          {% endfor%}
+
+        </div>
+
+        <div class="row">
+            <p class="text-center">
+                <a href="{% url 'projects' %}"> view more</a>
+            </p>
+        </div>
+
+      </div>
+    </section><!-- End Gallery Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <!-- <section id="testimonials" class="testimonials">
+      <div class="container">
+
+        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                <h3>Saul Goodman</h3>
+                <h4>Ceo &amp; Founder</h4>
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+            
+
+            
+
+            
+
+            <!-- <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+                <h3>John Larson</h3>
+                <h4>Entrepreneur</h4>
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                  Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+              </div>
+            </div>End testimonial item -->
+
+          <!-- </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section>End Testimonials Section  --> 
+
+    <!-- ======= Team Section ======= -->
+    <!-- <section id="team" class="team">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Team</h2>
+          <p>Our Great Team</p>
+        </div>
+
+        <div class="row justify-content-center" data-aos="fade-left">
+
+         
+          <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
+            <div class="member" data-aos="zoom-in" data-aos-delay="200">
+              <div class="pic"><img src="{% static 'images/team/team-2.jpg' %}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Korede Usman</h4>
+                <span>Product Manager</span>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+            <div class="member" data-aos="zoom-in" data-aos-delay="300">
+              <div class="pic"><img src="{% static 'images/team/team-3.jpg' %}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Franklin Okolo</h4>
+                <span>Web developer</span>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+            <div class="member" data-aos="zoom-in" data-aos-delay="400">
+              <div class="pic"><img src="{% static 'images/team/team-4.jpg' %}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Sylvester Benjamin</h4>
+                <span>We Designer</span>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>End Team Section -->
+
+  
+
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Contact</h2>
+          <p>Contact Us</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-4" data-aos="fade-right" data-aos-delay="100">
+            <div class="info">
+              <div class="address">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Location:</h4>
+                <p>40, Olaosebikan Street Itele off Ayetoro-Itele RD Ogun State</p>
+              </div>
+
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p>Webracket.dev@gmail.com</p>
+              </div>
+
+              <div class="phone">
+                <i class="bi bi-phone"></i>
+                <h4>Call:</h4>
+                <p>+2349055971750, +2349091100878</p>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="200">
+
+            <form action="{% url 'sendmail' %}" method="POST" role="form" name='contact' class="php-email-form">
+              {% csrf_token %}
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+              </div>
+              <div class="form-group mt-3">
+                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main>
+
+{% endblock content %}
