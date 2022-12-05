@@ -15,7 +15,7 @@ from django.template.loader import render_to_string
     
 def index(request):
    skills = skill.objects.all()
-   projects = project.objects.filter(active = True, )[0:1]
+   projects = project.objects.filter(active = True, )[0:4]
    context = {'projects': projects, 'skills':skills}
    return render(request, 'base/index.html', context)
 
