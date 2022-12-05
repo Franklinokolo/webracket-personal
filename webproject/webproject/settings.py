@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+from pickle import FALSE
 
 # import environ
 
@@ -32,9 +33,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-)c3fux&x_4p9=mmwpy-_ce-51c46w$tk0q6(gwl(qsy5w%-7d^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = FALSE
 
-# ALLOWED_HOSTS = ['127.0.0.1','franklinokolo.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1','franklinokolo.pythonanywhere.com']
 
 
 
